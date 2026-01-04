@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Industrial Palette */
+  --font-display: 'Manrope', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --background: 210 20% 98%;
+  --foreground: 220 15% 15%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 220 15% 15%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 15% 15%;
+
+  /* Tech Blue / Industrial Steel */
+  --primary: 215 90% 48%; 
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 210 15% 92%;
+  --secondary-foreground: 220 15% 20%;
+
+  --muted: 210 20% 96%;
+  --muted-foreground: 215 10% 45%;
+
+  --accent: 215 25% 95%;
+  --accent-foreground: 220 15% 15%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 215 15% 90%;
+  --input: 215 15% 90%;
+  --ring: 215 90% 48%;
+
+  --radius: 0.375rem;
+}
+
+.dark {
+  --background: 220 15% 10%;
+  --foreground: 210 40% 98%;
+
+  --card: 220 15% 12%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 220 15% 12%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 215 90% 55%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 215 15% 18%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 215 15% 18%;
+  --muted-foreground: 215 20% 65%;
+
+  --accent: 215 15% 18%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 215 15% 20%;
+  --input: 215 15% 20%;
+  --ring: 215 90% 55%;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary;
+    font-family: var(--font-body);
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight text-foreground;
+  }
+  
+  code, pre {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50 shadow-sm transition-all duration-300;
+  }
+  
+  .industrial-grid {
+    background-image: linear-gradient(to right, hsl(var(--border) / 0.3) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.3) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  }
+}
